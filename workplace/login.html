@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script> 
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <title>admin log in</title>
+    <style>
+        * { margin: 0; padding: 0; }
+        html { height: 100%; }
+        body { height: 100%; background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.8)), url(images/library.jpg),background-size: cover;}
+        .dowebok { position: absolute; left: 50%; top: 50%; width: 380px; height: 500px; margin: -270px 0 0 -185px; border: 1px solid #fff; border-radius: 20px; overflow: hidden;}
+        .logo { width: 120px; height: 104px; margin: 70px auto 40px 145px; background: url(images/admin.png) 0 0 no-repeat; background-size: 80%;opacity: 0.7;}
+        .form-item { position: relative; width: 320px; margin: 0 auto; padding-bottom: 30px;opacity: 0.9;}
+        .form-item input { width: 245px; height: 48px; padding-left: 70px; border: 1px solid #fff; border-radius: 25px; font-size: 18px; color: #fff; background-color: transparent; outline: none;opacity: 0.9;}
+        .form-item button { width: 320px; height: 50px; border: 0; border-radius: 25px; font-size: 18px; color: #1f6f4a;outline: none; cursor: pointer; background-color: #fff; opacity: 0.6;}
+        #username { background: url(images/account.png) 23px 11px no-repeat;background-size: 7.5%;}
+        #password { background: url(images/password.png) 23px 11px no-repeat;}
+        .tip1 { display: none; position: absolute; left: 20px; top: 52px; font-size: 14px; color: #f50; }
+        .tip2 { display: none; position: absolute; left: 20px; top: 52px; font-size: 14px; color: #f50; }
+        .reg-bar { width: 360px; margin: 20px auto 0; font-size: 14px; overflow: hidden;}
+        .reg-bar a { color: #fff; text-decoration: none; }
+        .reg-bar a:hover { text-decoration: underline; }
+        .reg-bar .reg { float: left; }
+        .reg-bar .forget { float: right; }
+        .dowebok ::-webkit-input-placeholder { font-size: 18px; line-height: 1.4; color: rgba(255,255,255,0.5);}
+        .dowebok :-moz-placeholder { font-size: 18px; line-height: 1.4; color: #fff;}
+        .dowebok ::-moz-placeholder { font-size: 18px; line-height: 1.4; color: #fff;}
+        .dowebok :-ms-input-placeholder { font-size: 18px; line-height: 1.4; color: #fff;}
+
+
+        @media screen and (max-width: 500px) {
+            * { box-sizing: border-box; }
+            .dowebok { position: static; width: auto; height: auto; margin: 0 30px; border: 0; border-radius: 0; }
+            .logo { margin: 50px auto; }
+            .form-item { width: auto; }
+            .form-item input, .form-item button, .reg-bar { width: 100%; }
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="dowebok">
+        <div class="logo"></div>
+        <div class="form-item">
+            <input id="username" type="text" autocomplete="off" placeholder="account name">
+            <p class="tip1">Please enter a valid account name </p>
+        </div>
+        <div class="form-item">
+            <input id="password" type="password" autocomplete="off" placeholder="password">
+            <p class="tip2">Account name or password is incorrect</p>
+        </div>
+        <div class="form-item"><button id="submit" onclick="login();">log in</button></div>
+        <!-- check password and account name -->
+        <script>
+            document.onkeydown = function(e){
+                if((e||event).keyCode==13)
+                    document.getElementById("submit").click();
+            };
+        </script>
+
+    </div>
+    <script src="js/jquery.min.js"></script>
+
+
+
+<!-- Footer -->
+  <div class="footer">
+    <div id="footer" style="position: absolute;margin-left: 935px;" >
+      <div class="cl">&nbsp;</div>
+      <p>
+        <a href="index.html">HOME</a> <span>|</span>
+        <a href="booklist.html">BOOK LIST</a><span>|</span>
+        <a href="login.html">ADMIN LOGIN</a>  |</span>
+        <a href="survey-content.html">ABOUT PROJECT</a>
+      </p>
+      <p> &copy; 2020 fiction research. Designed by E-reseach group form Unimelb.</p>
+    </div>
+  </div>  
+<!-- end Footer -->
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+Last login: Sat Feb  1 17:23:42 on ttys000
+(base) MacBook-Pro-3:~ mac$ cd /Users/mac/website
+(base) MacBook-Pro-3:website mac$ cd /Users/mac/website/functions
+(base) MacBook-Pro-3:functions mac$ ls
+index.js		package-lock.json
+node_modules		package.json
+(base) MacBook-Pro-3:functions mac$ firebase use --add
+? Which project do you want to add? web-test-5a8d2
+? What alias do you want to use for this project? (e.g. staging) audio_text
+
+Created alias audio_text for web-test-5a8d2.
+Now using alias audio_text (web-test-5a8d2)
+(base) MacBook-Pro-3:functions mac$ firebase deploy
+
+=== Deploying to 'web-test-5a8d2'...
+
+i  deploying functions, hosting
+Running command: npm --prefix "$RESOURCE_DIR" run lint
+
+> functions@ lint /Users/mac/website/functions
+> eslint .
+
+✔  functions: Finished running predeploy script.
+i  functions: ensuring necessary APIs are enabled...
+✔  functions: all necessary APIs are enabled
+i  functions: preparing functions directory for uploading...
+i  functions: packaged functions (39.35 KB) for uploading
+✔  functions: functions folder uploaded successfully
+i  hosting[web-test-5a8d2]: beginning deploy...
+i  hosting[web-test-5a8d2]: found 41 files in workplace
+✔  hosting[web-test-5a8d2]: file upload complete
+i  functions: updating Node.js 8 function helloWorld(us-central1)...
+✔  functions[helloWorld(us-central1)]: Successful update operation. 
+i  hosting[web-test-5a8d2]: finalizing version...
+✔  hosting[web-test-5a8d2]: version finalized
+i  hosting[web-test-5a8d2]: releasing new version...
+✔  hosting[web-test-5a8d2]: release complete
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/web-test-5a8d2/overview
+Hosting URL: https://web-test-5a8d2.firebaseapp.com
+(base) MacBook-Pro-3:functions mac$ 

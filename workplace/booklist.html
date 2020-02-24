@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html  style="height: 100%">
+
+<head>
+  <title> books list</title>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script> 
+   
+  
+   
+  <meta charset="utf-8">
+  <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-func.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/charts.js"></script>
+  <script type="text/javascript" src="js/dark.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+<body>
+	<script>
+		// otherFunc();
+		getallChartInfor();
+		// getchartInfo();
+
+	</script>
+	<header>
+	<div id="shell">
+	<!-- Header -->
+
+		<div id="header">
+			<h1 id="logo"><a href="#">Books List</a></h1>	
+			<div class="logo">
+				<a href="index.html"><img src="images/logo.png" style=" opacity: 0.5;margin-top: 40px" ></a>
+			</div>	
+
+			<div id="navigation">
+				<ul>
+				    <li><a class="active" href="#"> </a></li>
+				   <!--  <li><a href="chart">Data</a></li>
+				    <li><a href="main">Booklist</a></li>
+				    <li><a href="#"></a></li>
+				    <li><a href="#"></a></li>
+				    <li><a href="#"></a></li> -->
+				</ul>
+			</div>
+			<div id="sub-navigation"></div>
+			
+		</div>
+	<!-- end Header -->
+		<!-- bar chart1 -->
+		<div id="main">
+			<h1 style="color:#FFEBCD ">Results about book types</h1>	
+
+		<div class="main" style="z-index: 100;position: absolute;margin-left: 270px;margin-top: -30px;" >
+		   <ul id="labelChangeInBooklist">
+			  <div id="testtest"></div>
+		   </ul>
+		</div>
+
+
+
+
+			<div class="content";>
+				<div id="container" style="height:300%; margin-top: 80px;" >
+				</div>
+			       <script type="text/javascript">
+						showChart2('gender');
+			       </script>
+
+			</div>
+			
+			<!-- <div id="navigation">
+				<ul>
+				    <li><a class="active" href="#"> </a></li>
+				    <li><a href="chart"></a></li>
+				    <li><a href="main"></a></li>
+				    <li><a href="#"></a></li>
+				    <li><a href="#"></a></li>
+				    <li><a href="#"></a></li>
+				</ul>
+			</div>
+			<div id="sub-navigation"></div> -->
+		</div>
+		<!-- end bar chart1 -->
+
+<!-- bar chart2 -->
+		
+<!-- end bar chart2 -->
+
+
+
+		<!-- Main -->
+		<div id="main" style="position: relative;top: 50px;">
+		<!-- Box -->
+			<h1 style="color:#FFEBCD ">all books list</h1>
+			<div class="box">
+				<div class="1head" style="float: left;">
+					<div class="head1" >
+						<h1 style="color:#F8F8FF ">Classic Literature</h1>
+						<p class="text-right"><a href="#"> </a></p>
+					</div>
+
+				<!-- BOOK -->
+					<div class="movie">
+						<div class="movie-image">
+							<a href="results.html?param1=To Kill a Mockingbird@param2=images/1.jpg@param3="><span class="play"><span class="name">To Kill a Mockingbird</span></span><img src="images/1.jpg" alt="movie" /></a>
+						</div>
+					</div>
+				<!-- end BOOK -->
+					
+				<!-- book-->
+					<div class="movie">
+						<div class="movie-image">
+							<a href="results.html?param1=Pride and Prejudice@param2=images/2.jpg@param3="><span class="play"><span class="name">Pride and Prejudice</span></span><img src="images/2.jpg" alt="movie" /></a>
+						</div>
+					</div>
+				<!-- end book-->
+				</div>	
+
+				
+
+				<div class="2head"  style="float: left;">
+					<div class="head2">
+						<h1>Contemporary Literature</h1>
+					</div>
+
+				<!-- book -->
+					<div class="movie">
+						<div class="movie-image">
+							<a href="results.html?param1=Lebs@param2=images/3.jpg@param3="><span class="play"><span class="name">Lebs</span></span><img src="images/3.jpg" alt="movie" /></a>
+						</div>	
+					</div>
+				<!-- end book -->
+					
+				<!-- book -->
+					<div class="movie">
+						<div class="movie-image">
+							<a href="results.html?param1=The Swan Book@param2=images/4.jpg@param3="><span class="play"><span class="name">The Swan Book</span></span><img src="images/4.jpg" alt="movie" /></a>
+						</div>
+					</div>
+				<!-- end book -->
+				</div>
+
+
+
+				<div class="3head" style="float:left;">
+					<div class="head3">
+						<h1>Crime Thriller</h1>
+					</div>
+
+				<!-- book -->
+					<div class="movie">
+						<div class="movie-image">
+							<a href="results.html?param1=The Big Sleep@param2=images/5.jpg@param3="><span class="play"><span class="name">The Big Sleep</span></span><img src="images/5.jpg" alt="movie" /></a>
+						</div>	
+					</div>
+				<!-- end book -->
+					
+				<!-- book -->
+					<div class="movie">
+						<div class="movie-image">
+							<a href="results.html?param1=Gone Girl@param2=images/6.jpg@param3="><span class="play"><span class="name">Gone Girl</span></span><img src="images/6.jpg" alt="movie" /></a>
+						</div>
+					</div>
+				<!-- end book -->
+				</div>
+		<!-- end Box -->
+
+			
+		<!-- Box -->
+			<div class="box">
+				<div class="4head" style="float: left;">
+					<div class="head4" >
+						<h1>Fantasy</h1>
+						<p class="text-right"><a href="#"> </a></p>
+					</div>
+
+				<!-- book -->
+					<div class="movie">
+						<div class="movie-image">
+							<a href="results.html?param1=Lord of the Rings: Fellowship of the Ring@param2=images/7.jpg@param3="><span class="play"><span class="name">Lord of the Rings: Fellowship of the Ring</span></span><img src="images/7.jpg" alt="movie" /></a>
+						</div>
+					</div>
+				<!-- end book -->
+					
+				<!-- book -->
+					<div class="movie">
+						<div class="movie-image">
+							<a href="results.html?param1=The Fifth Season@param2=images/8.jpg@param3="><span class="play"><span class="name">The Fifth Season</span></span><img src="images/8.jpg" alt="movie" /></a>
+						</div>
+					</div>
+				<!-- end book -->
+				</div>	
+
+				
+
+				<div class="5head"  style="float: left;">
+					<div class="head5">
+						<h1>Young Adult</h1>
+					</div>
+
+				<!-- book -->
+					<div class="movie">
+						<div class="movie-image">
+							<a href="results.html?param1=Eleanor and Park@param2=images/9.jpg@param3="><span class="play"><span class="name">Eleanor & Park</span></span><img src="images/9.jpg" alt="movie" /></a>
+						</div>	
+					</div>
+				<!-- end book -->
+					
+				<!-- book -->
+					<div class="movie">
+						<div class="movie-image">
+							<a href="results.html?param1=Harry Potter and the Philosopher's Stone@param2=images/10.jpg@param3="><span class="play"><span class="name">Harry Potter and the Philosopher's Stone</span></span><img src="images/10.jpg" alt="movie" /></a>
+						</div>
+					</div>
+				<!-- end book -->
+				</div>
+
+
+			</div>
+				<div class="cl">&nbsp;</div>
+			</div>
+			<!-- end Box -->
+		<!-- 图表们 -->
+			<div class="cl">&nbsp;</div>
+		</div>
+		<!-- end Main -->
+
+		<!-- Footer -->
+		<div id="footer" style="margin-top: 100px;">
+			<p>
+				<a href="index.html">HOME</a> <span>|</span>
+				<a href="booklist.html">BOOK LIST</a><span>|</span>
+				<a href="login.html">ADMIN LOGIN</a>  |</span>
+				<a href="survey-content.html">ABOUT PROJECT</a>
+			</p>
+			<p> &copy; 2020 fiction research. Designed by E-reseach group form Unimelb.</p>
+		</div>	
+		<!-- end Footer -->
+	</div>
+</header>
+<!-- end Shell -->
+</body>
+</html>

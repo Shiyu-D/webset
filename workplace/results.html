@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+
+<!-- result page for administrator -->
+<head>
+  <title> books detail</title>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script> 
+   
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/charts.js"></script>
+  <script type="text/javascript" src="js/dark.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+
+<body>
+  <div class="main" style="position: relative;margin-top: 80px;margin-left:-350px;">
+      <ul id="labelChangeInResults">
+        <script type="text/javascript">
+          var nameID=getParams("param1")
+          var imageID=getParams("param2")
+          var start="start"
+          var halfway="halfway"
+          var finish="finish"
+        </script>
+
+      </ul>
+    </div>
+
+    <a href="booklist.html"><img src="images/logo.png" style="margin-top: -40px;margin-left: 150px; width: 80px; opacity: 0.5 ;float: left;"></a>
+  
+  <div class="sigleBook" id="bookinfo" style="float: left;">
+    <script>
+      var stage=getParams("param3")
+      console.log("参数param1:"+nameID);
+      console.log("参数param2:"+imageID);
+      console.log("参数param3:"+stage);
+      bookinfo.innerHTML="<img src="+imageID+"><h1>"+nameID+"</h1>"
+      changeLabelInResult(stage);
+    </script>
+  </div>
+
+
+  <div id="comment_Block">
+    <!-- statrt comments -->
+    <div class="comments"> 
+      <!-- label -->  
+      <div id="label">
+        <ul >
+          <li class="active" id="questions" style="position: absolute; left: 0px;" >
+            <a href="#">Comments</a>
+            <script>
+              // console.log(nameID,stage)
+              if(stage==""){
+                getBookQuestion(nameID,"start");
+              }else{
+              getBookQuestion(nameID,stage);}
+            </script>
+            <!-- <a href="#">questionssssssssss </a> -->
+          </li>
+        </ul>
+      </div>  
+
+      <!-- start each comment  --> 
+        <div class="word" id="comment_0">
+            <script>
+              if(stage==""){
+                getBookComments(nameID,"start");
+              }else{
+              getBookComments(nameID,stage);}
+            </script>
+        </div>
+        <!-- end each comment  -->    
+    </div> 
+  </div> 
+  <!-- end comments -->
+
+<!-- when want to overlap two divs, the position of div should,t
+be default(satatic) -->
+<!-- start bookData -->    
+  <div class="DataContent">
+    
+
+    <div class="main" style="z-index: 100;position: relative; width: 550px;">
+      <ul>
+        <li class="active" style="position: relative;margin-left:-550px"><a href="#">emotion</a></li>
+      </ul>
+    </div>
+    
+    <!-- start chart --> 
+    <div  id="chart" >
+      <div id="container" style="height:500%">
+          <script>
+            if(stage==""){
+              showChart(nameID,"start");
+            }else{
+            showChart(nameID,stage);}
+          </script>
+    </div>
+    <!--end chart  -->
+  </div>
+
+<!-- end bookData -->
+
+
+<!-- Footer -->
+  <div class="footer">
+    <div id="footer" >
+      <div class="cl">&nbsp;</div>
+      <p>
+        <a href="index.html">HOME</a> <span>|</span>
+        <a href="booklist.html">BOOK LIST</a><span>|</span>
+        <a href="login.html">ADMIN LOGIN</a>  |</span>
+        <a href="survey-content.html">ABOUT PROJECT</a>
+      </p>
+      <p> &copy; 2020 fiction research. Designed by E-reseach group form Unimelb.</p>
+    </div>
+  </div>  
+<!-- end Footer -->
+
+
+
+</body>
+</html>

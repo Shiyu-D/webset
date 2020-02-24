@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-functions.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-storage.js"></script>
+
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script type="text/javascript" src="js/index.js"></script>
+	<title>admin</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <meta charset="utf-8">
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/themify-icons.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar" data-background-color="black" data-active-color="primary">
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    data management
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="admin_booklist.html">
+                        <i class="ti-panel"></i>
+                        <p>books information</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin_pushNotification.html">
+                        <i class="ti-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Notifications</a>
+                </div>
+            </div>    
+        </nav>
+
+        <div class="content">
+            <div class="container-fluid">
+                    <div class="col-lg-10 col-md-7">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Book Detail</h4>
+                            </div>
+                            <div class="content">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Book Name</label>
+                                                <input type="text" class="form-control border-input" placeholder="Book Name"
+                                                id="bookname">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Author</label>
+                                                <input type="text" class="form-control border-input" placeholder="Author" id="author">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Genre</label>
+                                                <input type="text" class="form-control border-input" placeholder="Genre"id="genre">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-15">    
+                                        Capitalization of book name, author, and classification.
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-15">
+                                            <div class="form-group">
+                                                <label>Question of start</label>
+                                                <input type="text" class="form-control border-input" placeholder="Question"id="Q1">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-15">
+                                            <div class="form-group">
+                                                <label>Question of halfway</label>
+                                                <input type="text" class="form-control border-input" placeholder="Question" id="Q2">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-15">
+                                            <div class="form-group">
+                                                <label>Question of finish</label>
+                                                <input type="text" class="form-control border-input" placeholder="Question" id="Q3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="addImg" >
+                                    </div>
+                                        
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Upload cover image</label>
+                                                <input type='file' 
+                                                onchange='onFilePicked(event)'
+                                                style="float: left;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="worning"></div>
+                               
+
+                                <div class="text-center">
+                                   <button id="uploadAllfile" type="button"
+                                   onclick="saveDataIn()"
+                                    class="btn btn-info btn-fill btn-wd" style="margin-top: 40px" >Update Profile </button>
+                                </div>
+                               <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+        <footer class="footer" >
+            <div class="container-fluid">
+                <div class="copyright pull-right">
+                    <p> &copy; 2020 fiction research. Designed by E-reseach group form Unimelb.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <a id="back-to-top" href="#" class="back-to-top">
+        <span class="ti-angle-up"></span>
+    </a>
+    <!-- /Back to Top -->
+    <!-- Jquery Library-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Popper Library-->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap Library-->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- Datatable  -->
+    <script src="datatable/jquery.dataTables.min.js"></script>
+    <script src="datatable/dataTables.bootstrap4.min.js"></script>
+    
+    <!-- Custom Script-->
+    <script src="js/custom.js"></script>
+    <script src="js/custom-datatables.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+open index.html to open website

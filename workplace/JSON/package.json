@@ -1,0 +1,24 @@
+{
+  "name": "jsfile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/storage": "^4.3.1",
+    "body-parser": "^1.19.0",
+    "child-process-promise": "^2.2.1",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "firebase": "^7.8.1",
+    "firebase-admin": "^8.9.2",
+    "http": "0.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
+}

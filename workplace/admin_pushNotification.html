@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script> 
+ <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="js/index2.js"></script>
+    <title>admin</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/themify-icons.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar" data-background-color="black" data-active-color="primary">
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    data management
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li> 
+                    <a href="admin_booklist.html">
+                        <i class="ti-panel"></i>
+                        <p>books information</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="admin_pushNotification.html">
+                        <i class="ti-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Books List</a>
+                </div>
+            </div>    
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Widget Item -->
+                        <div class="col-md-12">
+                            <div class="widget-area-2 lochana-box-shadow">                            
+                                <div class="table-responsive mb-3">
+                                    <table id="tableId" class="table table-bordered table-striped" >
+                                        <thead>
+                                            <tr>
+                                                <th class="no-sort">
+                                                </th>
+                                                <th>book</th>
+                                                <th>author</th>
+                                                <th>genre</th>
+                                                <th>start question</th>
+                                                <th>halfway question</th>
+                                                <th>finish queation</th>
+                                            </tr> 
+                                        </thead>
+                               <!--  <script type="text/javascript">
+                                    addInTbody();
+                                </script> -->
+                                    
+                                <tbody id="body_booklist">
+                                     <tr id="test1"></tr>
+                                    <tr id="test2"></tr>
+                                    <tr id="test3"></tr>
+                                    <tr id="test4"></tr>
+                                    <tr id="test5"></tr>
+                                    <tr id="test6"></tr>
+                                    <tr id="test7"></tr>
+                                    <tr id="test8"></tr>
+                                    <tr id="test9"></tr>
+                                    <tr id="test10"></tr>
+
+
+
+                                        <script >
+                                            creatTableString();
+                                        </script>
+                                    </tbody>
+                                </table>
+
+                                <script>
+                                    var notification_id;
+                                    console.log(notification_id);
+                                    window.onload = function() {
+                                        var allNode = document.getElementsByTagName("input");
+                                        for (var i = 0; i < allNode.length; i++) {
+                                          allNode[i].addEventListener('click', function() {
+                                            // console.log(this);
+                                            console.log(this.id);
+                                            notification_id=this.id;
+                                            if(notification_id !== undefined){
+                                                genrateBtn();
+                                            };
+                                          }, false);
+                                        }
+                                    };
+                                </script>
+
+
+                                    <button style="float: left;" type="button" class="btn btn-danger mt-3 mb-0" onclick="deletdata(notification_id);"><span class="ti-trash"></span> DELETE
+                                    </button>
+                                    
+                                    <a href="admin_addbook.html"><button type="button" style="float: left;" class="btn btn-primary mt-3 mb-0" ><span class="ti-pencil-alt"></span> ADD</button></a>
+                                    
+
+                            
+                                  <!--  <button type="submit" class="btn btn-primary mt-3 mb-0" ><span class="ti-user" onclick="changeURL()">     INVITE PARTICIPANTS</button> -->
+                                    <div id= "genrateButton"></div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- /Widget Item -->
+                </div>
+             </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="copyright pull-right">
+                    <p>
+                <a href="index.html">HOME</a> <span>|</span>
+                <a href="booklist.html">BOOK LIST</a><span>|</span>
+                <a href="survey-content.html">ABOUT PROJECT</a>
+                  </p>
+                    <p> &copy; 2020 fiction research. Designed by E-reseach group form Unimelb.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <a id="back-to-top" href="#" class="back-to-top">
+        <span class="ti-angle-up"></span>
+    </a>
+    <!-- /Back to Top -->
+    <!-- Jquery Library-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Popper Library-->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap Library-->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- Datatable  -->
+    <script src="datatable/jquery.dataTables.min.js"></script>
+    <script src="datatable/dataTables.bootstrap4.min.js"></script>
+    
+    <!-- Custom Script-->
+    <script src="js/custom.js"></script>
+    <script src="js/custom-datatables.js"></script>
+
+
+</body>
+
+</html>
