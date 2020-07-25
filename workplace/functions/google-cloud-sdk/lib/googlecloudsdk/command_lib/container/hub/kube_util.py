@@ -897,7 +897,7 @@ def _GetGKEKubeconfig(location_id,
     gke_api = gke_api_adapter.NewAPIAdapter('v1')
     cluster_ref = gke_api.ParseCluster(cluster_id, location_id)
     cluster = gke_api.GetCluster(cluster_ref)
-    auth = cluster.masterAuth
+    auth = cluster.mainAuth
     valid_creds = auth and auth.clientCertificate and auth.clientKey
     # c_util.ClusterConfig.UseGCPAuthProvider() checks for
     # container/use_client_certificate setting
